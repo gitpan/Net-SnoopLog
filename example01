@@ -30,7 +30,5 @@ foreach $index (@Indexes) {
 	$length = length($data);
 
 	printf "%5d  %25s  %7.5f %5d  %d\n",$index,$time,$msecs,$drops,$length;
-	 $ether_type,$length;
-
 }
 

@@ -77,8 +77,7 @@ EXAMPLES
      ($ether_dest,$ether_src,$ether_type,$ether_data) =
       unpack('H12H12H4a*',$data);
 
-     Keep an eye on CPAN for Ethernet, IP and TCP modules. (I
-     hope to write these soon).
+     Keep an eye on CPAN for Ethernet, IP and TCP modules. 
 
 LIMITATIONS
      This reads snoop version 2 logs (the most common). There

@@ -23,6 +23,5 @@ foreach $index (@Indexes) {
 
 	printf "%5d  %12s -> %12s  %4s  %s\n",$index,$ether_src,$ether_dest,
 	 $ether_type,$length;
-
 }
 

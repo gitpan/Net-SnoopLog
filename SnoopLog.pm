@@ -1,16 +1,15 @@
 #!/bin/perl -w
+#
+# SnoopLog.pm - Net::SnoopLog library to read snoop ver 2 files (RFC1761).
+#
+# 17-Oct-2003	Brendan Gregg
 
 package Net::SnoopLog;
 
 use strict;
-#use Exporter;
-#use vars qw($VERSION @ISA @EXPORTER @EXPORT_OK);
 use vars qw($VERSION);
 
-#@EXPORT_OK = qw();
-#@ISA = 'Exporter';
-
-$VERSION = '0.10';	# 11-Oct-2003	Brendan Gregg
+$VERSION = '0.11';
 
 # new - create the snoop object
 #
@@ -157,6 +156,8 @@ sub clear {
 
 
 1;
+__END__
+
 
 =head1 NAME
 
@@ -253,8 +254,7 @@ protocol stack. An Ethernet/802.3 example is,
 ($ether_dest,$ether_src,$ether_type,$ether_data) =
  unpack('H12H12H4a*',$data);
 
-Keep an eye on CPAN for Ethernet, IP and TCP modules. (I hope to
-write these soon).
+Keep an eye on CPAN for Ethernet, IP and TCP modules. 
 
 =head1 LIMITATIONS
 
