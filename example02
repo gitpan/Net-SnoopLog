@@ -1,4 +1,4 @@
-#!/bin/perl
+#!/usr/bin/perl
 #
 # example02.pl - Example of Net::SnoopLog. Prints out ethernet headers.
 #

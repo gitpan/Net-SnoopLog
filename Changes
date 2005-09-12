@@ -1,5 +1,8 @@
 Revision history for Perl extension Net::SnoopLog.
 
+0.12  19-Oct-2003	
+      Changed the unpack code so this library will work on other OSs with ease.
+
 0.11  Updated documentation
 
 0.10  Sun Oct 12 01:11:16 2003

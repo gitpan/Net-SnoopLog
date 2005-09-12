@@ -9,7 +9,7 @@ package Net::SnoopLog;
 use strict;
 use vars qw($VERSION);
 
-$VERSION = '0.11';
+$VERSION = '0.12';
 
 # new - create the snoop object
 #
@@ -46,13 +46,14 @@ sub read {
 	### Open snoop file
 	open(SNOOPFILE,"$file") || 
 	 die "ERROR: Can't read snoop log $file: $!\n";
+	binmode(SNOOPFILE);		# backward OSs
 
 	### Fetch snoop header
 	$length = read(SNOOPFILE,$header,16);
 	die "ERROR: Can't read from snoop log $file\n" if $length < 16;
 
 	### Check file really is a snoop file
-	($ident,$version,$datalink) = unpack('A8II',$header);
+	($ident,$version,$datalink) = unpack('A8NN',$header);
 	die "ERROR: Not a snoop file $file\n" if $ident ne "snoop";
 
 	### Store values
@@ -73,7 +74,7 @@ sub read {
 		### Unpack header
         	($record_length_orig,$record_length_inc,$record_length_rec,
 		 $record_drops,$record_seconds,$record_msecs) = 
-		 unpack('IIIIII',$header_rec);
+		 unpack('NNNNNN',$header_rec);
 
 		### Skip padding
 		$length = read(SNOOPFILE,$record_data,$record_length_inc);
@@ -161,7 +162,7 @@ __END__
 
 =head1 NAME
 
-Net::SnoopLog - Read snoop network packet logs, from RFC1761 snoop ver 2.
+Net::SnoopLog - Read snoop network packet logs, from RFC1761 snoop ver 2. 
 Perl implementation (not an interface).
 
 =head1 SYNOPSIS
